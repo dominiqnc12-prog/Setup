@@ -3,140 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impact Master Command | Strategy & Finance</title>
+    <title>Project Impact | Master Command</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased bg-[#F9F7F2] text-stone-900">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black shadow-lg shadow-indigo-200">PI</div>
+            <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black shadow-lg">PI</div>
             <h1 class="font-black text-xl tracking-tighter uppercase">Project <span class="text-indigo-600">Impact</span></h1>
         </div>
         
         <div class="bg-stone-100 p-1 rounded-xl flex gap-1 shadow-inner">
-            <button onclick="switchView('strategy')" id="btn-strategy" class="view-btn active px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Strategy</button>
-            <button onclick="switchView('finance')" id="btn-finance" class="view-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Financial War Room</button>
-            <button onclick="switchView('ops')" id="btn-ops" class="view-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Ops & Risk</button>
+            <button onclick="switchView('strategy')" id="btn-strategy" class="view-btn active px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Strategic Roadmap</button>
+            <button onclick="switchView('finance')" id="btn-finance" class="view-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Financial Lab</button>
+            <button onclick="switchView('ops')" id="btn-ops" class="view-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Production & Risk</button>
         </div>
     </nav>
 
     <main class="max-w-6xl mx-auto p-6">
         
-        <!-- SECTION 1: STRATEGY ROADMAP -->
+        <!-- SECTION 1: STRATEGY ROADMAP (RE-EXPANDED) -->
         <div id="view-strategy" class="view-content active space-y-8">
-            <section class="bg-indigo-900 text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden">
+            <header class="bg-indigo-900 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
                 <div class="relative z-10">
-                    <h2 class="text-3xl font-black mb-2">The Yard Takeover</h2>
-                    <p class="text-indigo-200 max-w-xl">A high-impact recruitment and social strategy designed for North Carolina's premier campus environment.</p>
+                    <h2 class="text-4xl font-black mb-4 uppercase tracking-tight">The Yard Takeover Strategy</h2>
+                    <p class="text-indigo-200 text-lg max-w-2xl leading-relaxed">A high-fidelity recruitment blueprint for North Carolina campuses, designed to maximize organizational visibility through a low-friction social funnel.</p>
                 </div>
-                <div class="absolute top-[-20%] right-[-10%] w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl"></div>
-            </section>
+                <div class="absolute top-[-20%] right-[-10%] w-96 h-96 bg-indigo-500/20 rounded-full blur-[100px]"></div>
+            </header>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                    <i data-lucide="target" class="text-indigo-600 mb-4"></i>
-                    <h3 class="font-bold mb-2">Primary Objective</h3>
-                    <p class="text-sm text-stone-600">Secure 30+ new recruits through a low-friction "Showcase & Social" funnel.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-indigo-600">
+                        <i data-lucide="layers"></i> The Strategy Pillars
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="p-4 bg-stone-50 rounded-xl">
+                            <strong class="block text-indigo-900 uppercase text-xs tracking-widest">01. High-Production Hook</strong>
+                            <p class="text-stone-600 text-sm mt-1">Utilizing professional lighting and top-tier NC DJs to create a "can't miss" social atmosphere.</p>
+                        </li>
+                        <li class="p-4 bg-stone-50 rounded-xl">
+                            <strong class="block text-indigo-900 uppercase text-xs tracking-widest">02. Recruitment Integration</strong>
+                            <p class="text-stone-600 text-sm mt-1">Intermission segments dedicated to introducing the org's mission without breaking the event's energy.</p>
+                        </li>
+                        <li class="p-4 bg-stone-50 rounded-xl">
+                            <strong class="block text-indigo-900 uppercase text-xs tracking-widest">03. Digital Funnel</strong>
+                            <p class="text-stone-600 text-sm mt-1">QR codes placed at the entrance and on screens to capture attendee info for the follow-up meeting.</p>
+                        </li>
+                    </ul>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                    <i data-lucide="users" class="text-indigo-600 mb-4"></i>
-                    <h3 class="font-bold mb-2">Target Demographic</h3>
-                    <p class="text-sm text-stone-600">Undergraduate students seeking community, leadership, and high-energy social spaces.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
-                    <i data-lucide="zap" class="text-indigo-600 mb-4"></i>
-                    <h3 class="font-bold mb-2">Value Prop</h3>
-                    <p class="text-sm text-stone-600">The most affordable high-production social event of the semester.</p>
+
+                <div class="bg-stone-900 text-stone-300 p-8 rounded-3xl shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                        <i data-lucide="calendar"></i> Master Timeline
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="text-indigo-400 font-mono font-bold">W-4</div>
+                            <div class="text-sm"><strong class="text-white block">Phase 1: Compliance</strong> Secure venue permits, insurance waivers, and university event approval.</div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-indigo-400 font-mono font-bold">W-2</div>
+                            <div class="text-sm"><strong class="text-white block">Phase 2: Digital Blitz</strong> Launch IG/TikTok campaign. Start early-bird ticket sales.</div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-indigo-400 font-mono font-bold">W-1</div>
+                            <div class="text-sm"><strong class="text-white block">Phase 3: Deployment</strong> Final DJ walkthrough, security briefing, and supply pickup.</div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="text-indigo-400 font-mono font-bold">D-0</div>
+                            <div class="text-sm"><strong class="text-white block">Phase 4: Execution</strong> Event day. Doors open at 9 PM. Interest meeting at 10:30 PM.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 2: FINANCIAL WAR ROOM -->
+        <!-- SECTION 2: FINANCIAL LAB (FULL LOGIC) -->
         <div id="view-finance" class="view-content hidden space-y-6">
             <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Control Panel -->
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-200">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i data-lucide="sliders" class="w-5 h-5 text-indigo-600"></i> Variable Controls
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 uppercase tracking-tighter">
+                        <i data-lucide="calculator" class="text-indigo-600"></i> Financial Variables
                     </h3>
                     
-                    <div class="space-y-8">
+                    <div class="space-y-10">
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-sm font-bold text-stone-500 uppercase">Ticket Price ($)</label>
-                                <span id="priceLabel" class="text-indigo-600 font-mono font-bold">$10</span>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-xs font-black text-stone-400 uppercase tracking-widest">General Admission ($)</label>
+                                <span id="priceLabel" class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full font-mono font-bold">$10</span>
                             </div>
                             <input type="range" id="priceRange" min="5" max="30" value="10" class="w-full accent-indigo-600">
                         </div>
 
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-sm font-bold text-stone-500 uppercase">Attendance</label>
-                                <span id="attendeeLabel" class="text-indigo-600 font-mono font-bold">200</span>
+                            <div class="flex justify-between mb-4">
+                                <label class="text-xs font-black text-stone-400 uppercase tracking-widest">Projected Attendance</label>
+                                <span id="attendeeLabel" class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full font-mono font-bold">200</span>
                             </div>
                             <input type="range" id="attendeeRange" min="50" max="500" value="200" step="10" class="w-full accent-indigo-600">
                         </div>
                     </div>
 
-                    <div class="mt-10 p-4 bg-stone-50 rounded-xl border border-stone-200 border-dashed">
-                        <div class="flex justify-between text-sm mb-1 text-stone-500">
-                            <span>Sponsorship / Fixed Funding:</span>
-                            <span class="font-mono">$700.00</span>
+                    <div class="mt-12 space-y-3">
+                        <div class="flex justify-between p-3 bg-stone-50 rounded-lg text-sm border border-stone-100">
+                            <span class="text-stone-500 font-medium">Sponsorship Revenue</span>
+                            <span class="font-mono font-bold text-green-600">+$500.00</span>
+                        </div>
+                        <div class="flex justify-between p-3 bg-stone-50 rounded-lg text-sm border border-stone-100">
+                            <span class="text-stone-500 font-medium">Fixed Expenses (Venue/DJ)</span>
+                            <span class="font-mono font-bold text-rose-500">-$700.00</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Live Results -->
-                <div class="bg-indigo-900 text-white p-8 rounded-3xl shadow-xl flex flex-col justify-between">
-                    <div>
-                        <p class="text-indigo-300 text-xs font-bold uppercase tracking-widest mb-2">Projected Net Profit</p>
-                        <h2 id="netProfitDisplay" class="text-6xl font-black tabular-nums">$0.00</h2>
+                <div class="bg-indigo-900 text-white p-10 rounded-3xl shadow-2xl flex flex-col">
+                    <div class="mb-auto">
+                        <p class="text-indigo-300 text-xs font-black uppercase tracking-[0.2em] mb-4">Final Org Net Profit</p>
+                        <h2 id="netProfitDisplay" class="text-7xl font-black tabular-nums tracking-tighter">$1,800</h2>
+                        <div id="profitWarning" class="hidden mt-4 text-xs font-bold bg-rose-500/20 text-rose-300 p-3 rounded-lg border border-rose-500/30 uppercase tracking-widest">Warning: High Risk Margin</div>
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-4 mt-8">
-                        <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-                            <p class="text-[10px] uppercase font-bold text-indigo-300">Gross Revenue</p>
-                            <p id="grossDisplay" class="text-xl font-bold font-mono">$0</p>
+                    <div class="grid grid-cols-2 gap-6 mt-12">
+                        <div class="border-t border-indigo-700 pt-6">
+                            <p class="text-[10px] uppercase font-black text-indigo-400 mb-1">Gross Revenue</p>
+                            <p id="grossDisplay" class="text-2xl font-bold font-mono">$2,500</p>
                         </div>
-                        <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-                            <p class="text-[10px] uppercase font-bold text-indigo-300">Org Split (50%)</p>
-                            <p id="splitDisplay" class="text-xl font-bold font-mono">$0</p>
+                        <div class="border-t border-indigo-700 pt-6">
+                            <p class="text-[10px] uppercase font-black text-indigo-400 mb-1">Org Split (50%)</p>
+                            <p id="splitDisplay" class="text-2xl font-bold font-mono">$900</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 3: OPS & RISK -->
-        <div id="view-ops" class="view-content hidden">
+        <!-- SECTION 3: OPS & RISK (RESTORED DETAILS) -->
+        <div id="view-ops" class="view-content hidden space-y-8">
             <div class="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden">
-                <div class="p-6 border-b border-stone-100 flex justify-between items-center bg-stone-50/50">
-                    <h3 class="font-bold">Production Timeline & Risk Matrix</h3>
-                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-[10px] font-black uppercase">Active</span>
-                </div>
-                <div class="p-8 grid md:grid-cols-2 gap-12">
-                    <div class="space-y-6">
-                        <h4 class="text-xs font-black text-indigo-600 uppercase tracking-tighter">Milestones</h4>
-                        <ul class="space-y-4">
-                            <li class="flex gap-4">
-                                <span class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-xs font-bold">01</span>
-                                <div><p class="font-bold text-sm">Venue Lockdown</p><p class="text-xs text-stone-500">Secure campus permits & insurance.</p></div>
-                            </li>
-                            <li class="flex gap-4 border-l-2 border-stone-100 ml-4 pl-4">
-                                <span class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-xs font-bold">02</span>
-                                <div><p class="font-bold text-sm">Talent & DJ Curation</p><p class="text-xs text-stone-500">Contracting 2 DJs + Lighting Rig.</p></div>
-                            </li>
-                        </ul>
+                <div class="p-8 border-b border-stone-100 bg-stone-50 flex justify-between items-center">
+                    <div>
+                        <h3 class="text-2xl font-black uppercase tracking-tighter">Production Blueprint</h3>
+                        <p class="text-stone-500 text-sm">Logistical safeguards and the show-flow breakdown.</p>
                     </div>
-                    <div class="bg-rose-50 p-6 rounded-2xl border border-rose-100">
-                        <h4 class="text-xs font-black text-rose-600 uppercase mb-4">Risk Mitigation</h4>
-                        <div class="text-sm space-y-3">
-                            <p><strong>Low Attendance:</strong> Pivot to "Social Only" marketing 7 days prior.</p>
-                            <p><strong>Security Issue:</strong> 2 hired off-duty officers per 150 guests.</p>
+                    <div class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-[10px] font-black uppercase tracking-widest shadow-lg">V1.0.4 - Secure</div>
+                </div>
+                
+                <div class="p-8 grid md:grid-cols-2 gap-12">
+                    <!-- Show Flow -->
+                    <div>
+                        <h4 class="text-xs font-black text-indigo-600 uppercase mb-6 flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4"></i> Event Show Flow
+                        </h4>
+                        <div class="relative border-l-2 border-indigo-100 ml-2 space-y-8 pl-8">
+                            <div class="relative">
+                                <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-sm"></div>
+                                <p class="text-sm font-black">9:00 PM — DOORS & ENERGY</p>
+                                <p class="text-xs text-stone-500 mt-1">DJ set begins at low volume. Light show active. Photo booth opens.</p>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-indigo-200 border-4 border-white shadow-sm"></div>
+                                <p class="text-sm font-black">10:30 PM — THE MISSION</p>
+                                <p class="text-xs text-stone-500 mt-1">Music cuts. President's welcome. 5-minute video presentation on the Yard screens.</p>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-indigo-200 border-4 border-white shadow-sm"></div>
+                                <p class="text-sm font-black">11:00 PM — PEAK VIBE</p>
+                                <p class="text-xs text-stone-500 mt-1">Main headliner set. QR codes for Interest Meeting distributed via giveaway cards.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk Management -->
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-black text-rose-600 uppercase mb-4 flex items-center gap-2">
+                            <i data-lucide="shield-alert" class="w-4 h-4"></i> Risk Mitigation Matrix
+                        </h4>
+                        <div class="grid gap-4">
+                            <div class="p-5 rounded-2xl bg-rose-50 border border-rose-100">
+                                <p class="font-bold text-rose-900 text-sm">Security Violation</p>
+                                <p class="text-xs text-rose-700 mt-1">Strict ID check at door. Bag policy enforced by hired off-duty RPD/Campus PD.</p>
+                            </div>
+                            <div class="p-5 rounded-2xl bg-amber-50 border border-amber-100">
+                                <p class="font-bold text-amber-900 text-sm">Recruitment Bottleneck</p>
+                                <p class="text-xs text-amber-700 mt-1">If "Interest Meeting" signups are < 20 by 11 PM, deploy street team with incentive tablets.</p>
+                            </div>
+                            <div class="p-5 rounded-2xl bg-indigo-50 border border-indigo-100">
+                                <p class="font-bold text-indigo-900 text-sm">Technical Failure</p>
+                                <p class="text-xs text-indigo-700 mt-1">Backup generator and secondary sound console pre-staged in Green Room.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
