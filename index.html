@@ -3,35 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Impact | Strategic Command Center</title>
+    <title>Project Impact | Master Command</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="antialiased bg-[#F9F7F2]">
+<body class="antialiased bg-[#F9F7F2] text-stone-900">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200 px-6 py-4 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white font-bold">PI</div>
-            <span class="font-bold tracking-tight text-xl uppercase">Project <span class="text-indigo-600">Impact</span></span>
+            <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black shadow-lg">PI</div>
+            <h1 class="font-black text-xl tracking-tighter uppercase">Project <span class="text-indigo-600">Impact</span></h1>
         </div>
-        <div class="hidden md:flex gap-8 text-xs font-black uppercase tracking-widest">
-            <button onclick="scrollToSection('strategy')" class="hover:text-indigo-600 transition-colors">Strategy</button>
-            <button onclick="scrollToSection('finance')" class="hover:text-indigo-600 transition-colors">Financial Lab</button>
-            <button onclick="scrollToSection('production')" class="hover:text-indigo-600 transition-colors">Ops</button>
+        
+        <div class="bg-stone-100 p-1 rounded-xl flex gap-1 shadow-inner">
+            <button onclick="switchTab('finance')" id="tab-finance" class="tab-btn active px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Financial Lab</button>
+            <button onclick="switchTab('strategy')" id="tab-strategy" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Strategic Roadmap</button>
+            <button onclick="tabSwitch('ops')" id="tab-ops" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Ops & Risk</button>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 py-12">
+    <main class="max-w-7xl mx-auto p-6">
         
-        <section id="strategy" class="mb-16">
-            <h1 class="heading-serif text-5xl mb-4">Strategic Command</h1>
-            <p class="text-stone-500 max-w-2xl">Converting campus presence into organizational capital through high-production entertainment.</p>
-        </section>
-
-        <section id="finance" class="mb-20">
+        <div id="view-finance" class="tab-content active space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
                     <p class="text-[10px] font-black text-stone-400 uppercase tracking-widest mb-1">Total Revenue</p>
@@ -55,73 +51,106 @@
                 <div class="lg:col-span-1 space-y-6">
                     <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
                         <h4 class="text-xs font-black uppercase tracking-widest mb-8 flex items-center gap-2">
-                            <i data-lucide="trending-up" class="w-4 h-4"></i> Revenue Levers
+                            <i data-lucide="trending-up" class="w-4 h-4 text-indigo-600"></i> Revenue Levers
                         </h4>
-                        
                         <div class="space-y-10">
                             <div>
-                                <div class="flex justify-between text-xs font-bold mb-3">
-                                    <label class="text-stone-400 uppercase">Ticket Price</label>
-                                    <span id="priceLabel" class="text-indigo-600">$5</span>
-                                </div>
+                                <div class="flex justify-between text-xs font-bold mb-3"><label class="text-stone-400">TICKET PRICE</label><span id="priceLabel" class="text-indigo-600">$5</span></div>
                                 <input type="range" id="priceRange" min="5" max="25" value="5" class="w-full">
                             </div>
                             <div>
-                                <div class="flex justify-between text-xs font-bold mb-3">
-                                    <label class="text-stone-400 uppercase">Attendance</label>
-                                    <span id="attendeeLabel" class="text-indigo-600">300</span>
-                                </div>
+                                <div class="flex justify-between text-xs font-bold mb-3"><label class="text-stone-400">ATTENDANCE</label><span id="attendeeLabel" class="text-indigo-600">300</span></div>
                                 <input type="range" id="attendeeRange" min="50" max="500" value="300" step="10" class="w-full">
                             </div>
                         </div>
                     </div>
-
                     <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
                         <h4 class="text-xs font-black uppercase tracking-widest mb-8 flex items-center gap-2 text-rose-600">
                             <i data-lucide="settings" class="w-4 h-4"></i> Expense Levers
                         </h4>
                         <div class="space-y-10">
                             <div>
-                                <div class="flex justify-between text-xs font-bold mb-3">
-                                    <label class="text-stone-400 uppercase">Venue & Tech</label>
-                                    <span id="venueLabel" class="text-rose-600">$400</span>
-                                </div>
+                                <div class="flex justify-between text-xs font-bold mb-3"><label class="text-stone-400">VENUE & TECH</label><span id="venueLabel" class="text-rose-600">$400</span></div>
                                 <input type="range" id="venueRange" min="200" max="1000" value="400" step="50" class="w-full accent-rose-500">
                             </div>
                             <div>
-                                <div class="flex justify-between text-xs font-bold mb-3">
-                                    <label class="text-stone-400 uppercase">Prize Pot</label>
-                                    <span id="prizeLabel" class="text-rose-600">$300</span>
-                                </div>
+                                <div class="flex justify-between text-xs font-bold mb-3"><label class="text-stone-400">PRIZE POT</label><span id="prizeLabel" class="text-rose-600">$300</span></div>
                                 <input type="range" id="prizeRange" min="0" max="1000" value="300" step="50" class="w-full accent-rose-500">
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="lg:col-span-2 space-y-6">
-                    <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm h-full flex flex-col">
-                        <h4 class="text-xs font-black uppercase tracking-widest mb-8">Projected Cash Flow</h4>
-                        <div class="flex-grow min-h-[300px] relative">
-                            <canvas id="mainChart"></canvas>
+                <div class="lg:col-span-2 bg-white p-8 rounded-3xl border border-stone-200 shadow-sm flex flex-col">
+                    <h4 class="text-xs font-black uppercase tracking-widest mb-8">Projected Cash Flow</h4>
+                    <div class="flex-grow min-h-[300px] relative"><canvas id="mainChart"></canvas></div>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-indigo-600 text-white p-6 rounded-2xl">
+                            <h5 class="font-bold text-sm mb-1">Break-Even Warning</h5>
+                            <p class="text-xs text-indigo-100">You need <span id="breakEven" class="font-black text-white">200 paid guests</span> to cover costs.</p>
                         </div>
-                        
-                        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-indigo-600 text-white p-6 rounded-2xl">
-                                <i data-lucide="shield-alert" class="w-5 h-5 mb-3 opacity-50"></i>
-                                <h5 class="font-bold text-sm mb-1">Break-Even Warning</h5>
-                                <p class="text-xs text-indigo-100">You need <span id="breakEven" class="font-black text-white">200 paid guests</span> to cover all expenses at current pricing.</p>
-                            </div>
-                            <div class="bg-stone-50 border border-stone-100 p-6 rounded-2xl">
-                                <i data-lucide="zap" class="w-5 h-5 mb-3 text-indigo-600"></i>
-                                <h5 class="font-bold text-sm mb-1">Strategy Note</h5>
-                                <p class="text-xs text-stone-500 italic">"Increasing ticket price by just $2 adds <span id="upside" class="font-bold text-indigo-600">$600</span> to the net profit split."</p>
-                            </div>
+                        <div class="bg-stone-50 border border-stone-100 p-6 rounded-2xl">
+                            <h5 class="font-bold text-sm mb-1">Strategy Note</h5>
+                            <p class="text-xs text-stone-500 italic">Increasing price by $2 adds <span id="upside" class="font-bold text-indigo-600">$600</span> to split.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <div id="view-strategy" class="tab-content hidden space-y-8">
+            <header class="bg-indigo-900 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-4xl font-black mb-4 uppercase tracking-tight">The Yard Takeover Blueprint</h2>
+                    <p class="text-indigo-200 text-lg max-w-2xl leading-relaxed">A high-fidelity recruitment blueprint designed to maximize organizational visibility through a low-friction social funnel.</p>
+                </div>
+            </header>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-indigo-600"><i data-lucide="layers"></i> Strategic Pillars</h3>
+                    <ul class="space-y-4">
+                        <li class="p-4 bg-stone-50 rounded-xl font-medium text-sm">01. High-Production Hook: Professional lighting and top-tier NC DJs.</li>
+                        <li class="p-4 bg-stone-50 rounded-xl font-medium text-sm">02. Recruitment Integration: Intermission mission statements.</li>
+                        <li class="p-4 bg-stone-50 rounded-xl font-medium text-sm">03. Digital Funnel: QR code lead capture for interest meetings.</li>
+                    </ul>
+                </div>
+                <div class="bg-stone-900 text-stone-300 p-8 rounded-3xl shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white flex items-center gap-2"><i data-lucide="calendar"></i> Master Timeline</h3>
+                    <div class="space-y-6 text-sm">
+                        <p><strong class="text-white block font-mono">W-4 Lockdown:</strong> Venue permits and budget approval.</p>
+                        <p><strong class="text-white block font-mono">W-2 Blitz:</strong> Digital IG/TikTok campaign launch.</p>
+                        <p><strong class="text-white block font-mono">D-Day:</strong> Doors at 9 PM. Interest meeting at 10:30 PM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-ops" class="tab-content hidden space-y-8">
+            <div class="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden">
+                <div class="p-8 border-b border-stone-100 bg-stone-50 flex justify-between items-center">
+                    <h3 class="text-2xl font-black uppercase tracking-tighter">Production & Risk Matrix</h3>
+                    <div class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-[10px] font-black uppercase tracking-widest">Secure V1.0</div>
+                </div>
+                <div class="p-8 grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-black text-indigo-600 uppercase mb-6 flex items-center gap-2"><i data-lucide="clock"></i> Show Flow</h4>
+                        <div class="border-l-2 border-indigo-100 pl-6 space-y-6 text-sm">
+                            <p><strong>9:00 PM:</strong> Doors open, DJ at 110bpm.</p>
+                            <p><strong>10:30 PM:</strong> The Mission (Video presentation).</p>
+                            <p><strong>11:00 PM:</strong> Peak Vibe & Winner Reveal.</p>
+                        </div>
+                    </div>
+                    <div class="bg-rose-50 p-6 rounded-2xl border border-rose-100">
+                        <h4 class="text-xs font-black text-rose-600 uppercase mb-4">Critical Safeguards</h4>
+                        <ul class="text-xs space-y-4 text-rose-800 font-medium">
+                            <li><strong>Security:</strong> Hired off-duty officers per 150 guests.</li>
+                            <li><strong>Churn:</strong> Participation fees collected 14 days prior.</li>
+                            <li><strong>Tech:</strong> Backup sound console staged in Green Room.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <script src="app.js"></script>
