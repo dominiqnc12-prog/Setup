@@ -15,13 +15,13 @@
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-2">
             <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-black shadow-lg">PI</div>
-            <h1 class="font-black text-xl tracking-tighter uppercase">Project <span class="text-indigo-600">Impact</span></h1>
+            <h1 class="font-black text-xl tracking-tighter uppercase text-stone-900">Project <span class="text-indigo-600">Impact</span></h1>
         </div>
         
         <div class="bg-stone-100 p-1 rounded-xl flex gap-1 shadow-inner">
             <button onclick="switchTab('finance')" id="tab-finance" class="tab-btn active px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Financial Lab</button>
             <button onclick="switchTab('strategy')" id="tab-strategy" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Strategic Roadmap</button>
-            <button onclick="tabSwitch('ops')" id="tab-ops" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Ops & Risk</button>
+            <button onclick="switchTab('ops')" id="tab-ops" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold uppercase transition-all">Ops & Risk</button>
         </div>
     </nav>
 
@@ -125,27 +125,69 @@
         </div>
 
         <div id="view-ops" class="tab-content hidden space-y-8">
-            <div class="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden">
-                <div class="p-8 border-b border-stone-100 bg-stone-50 flex justify-between items-center">
-                    <h3 class="text-2xl font-black uppercase tracking-tighter">Production & Risk Matrix</h3>
-                    <div class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-[10px] font-black uppercase tracking-widest">Secure V1.0</div>
+            <div class="bg-white rounded-[2.5rem] shadow-sm border border-stone-200 overflow-hidden">
+                <div class="p-10 border-b border-stone-100 bg-stone-50 flex justify-between items-center">
+                    <div>
+                        <h3 class="text-3xl font-black uppercase tracking-tighter">Production & Risk Matrix</h3>
+                        <p class="text-stone-500 text-sm mt-1 font-medium">Operational safeguards and day-of execution flow.</p>
+                    </div>
+                    <div class="px-5 py-2 bg-rose-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-rose-200">System Secure</div>
                 </div>
-                <div class="p-8 grid md:grid-cols-2 gap-12">
-                    <div class="space-y-6">
-                        <h4 class="text-xs font-black text-indigo-600 uppercase mb-6 flex items-center gap-2"><i data-lucide="clock"></i> Show Flow</h4>
-                        <div class="border-l-2 border-indigo-100 pl-6 space-y-6 text-sm">
-                            <p><strong>9:00 PM:</strong> Doors open, DJ at 110bpm.</p>
-                            <p><strong>10:30 PM:</strong> The Mission (Video presentation).</p>
-                            <p><strong>11:00 PM:</strong> Peak Vibe & Winner Reveal.</p>
+                
+                <div class="p-10 grid md:grid-cols-2 gap-16">
+                    <div>
+                        <h4 class="text-xs font-black text-indigo-600 uppercase mb-8 flex items-center gap-2 tracking-[0.2em]">
+                            <i data-lucide="clock" class="w-4 h-4"></i> Official Show Flow
+                        </h4>
+                        <div class="relative border-l-2 border-indigo-100 ml-3 space-y-10 pl-10">
+                            <div class="relative">
+                                <div class="absolute -left-[51px] top-1 w-5 h-5 rounded-full bg-indigo-600 border-4 border-white shadow-md"></div>
+                                <p class="text-sm font-black text-stone-900 uppercase">09:00 PM — The Threshold</p>
+                                <p class="text-xs text-stone-500 mt-2 leading-relaxed">Doors open. DJ at 110bpm. Welcome committee in position. Intro video loops on main screens to build atmospheric tension.</p>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-[51px] top-1 w-5 h-5 rounded-full bg-indigo-300 border-4 border-white shadow-md"></div>
+                                <p class="text-sm font-black text-stone-900 uppercase">10:30 PM — The Mission</p>
+                                <p class="text-xs text-stone-500 mt-2 leading-relaxed">Music cuts to 20%. Chapter President delivers 3-minute high-impact address. Interest meeting QR codes broadcast on all displays.</p>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-[51px] top-1 w-5 h-5 rounded-full bg-indigo-100 border-4 border-white shadow-md"></div>
+                                <p class="text-sm font-black text-stone-900 uppercase">11:00 PM — Peak Execution</p>
+                                <p class="text-xs text-stone-500 mt-2 leading-relaxed">Main performance rounds. Audience noise-meter voting. Prize distribution and final recruitment call-to-action.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-rose-50 p-6 rounded-2xl border border-rose-100">
-                        <h4 class="text-xs font-black text-rose-600 uppercase mb-4">Critical Safeguards</h4>
-                        <ul class="text-xs space-y-4 text-rose-800 font-medium">
-                            <li><strong>Security:</strong> Hired off-duty officers per 150 guests.</li>
-                            <li><strong>Churn:</strong> Participation fees collected 14 days prior.</li>
-                            <li><strong>Tech:</strong> Backup sound console staged in Green Room.</li>
-                        </ul>
+
+                    <div class="space-y-8">
+                        <h4 class="text-xs font-black text-rose-600 uppercase mb-8 flex items-center gap-2 tracking-[0.2em]">
+                            <i data-lucide="shield-alert" class="w-4 h-4"></i> Critical Risk Mitigation
+                        </h4>
+                        
+                        <div class="grid gap-4">
+                            <div class="p-6 rounded-2xl bg-rose-50 border border-rose-100 group hover:bg-rose-100 transition-colors">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="font-black text-rose-900 text-xs uppercase tracking-wider">01. Participant Churn</p>
+                                    <span class="text-[10px] font-bold text-rose-500 bg-white px-2 py-1 rounded border border-rose-200 uppercase">High Priority</span>
+                                </div>
+                                <p class="text-xs text-rose-700 leading-relaxed">Requirement of non-refundable "Skin in the Game" fee 14 days prior to event to prevent mid-cycle dropouts.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-amber-50 border border-amber-100 group hover:bg-amber-100 transition-colors">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="font-black text-amber-900 text-xs uppercase tracking-wider">02. Crowd Control</p>
+                                    <span class="text-[10px] font-bold text-amber-500 bg-white px-2 py-1 rounded border border-amber-200 uppercase">Standard</span>
+                                </div>
+                                <p class="text-xs text-amber-700 leading-relaxed">Deployment of 2 off-duty officers per 150 expected guests. Strict "No Re-entry" policy after 10:45 PM.</p>
+                            </div>
+
+                            <div class="p-6 rounded-2xl bg-indigo-50 border border-indigo-100 group hover:bg-indigo-100 transition-colors">
+                                <div class="flex justify-between items-start mb-2">
+                                    <p class="font-black text-indigo-900 text-xs uppercase tracking-wider">03. Tech Redundancy</p>
+                                    <span class="text-[10px] font-bold text-indigo-500 bg-white px-2 py-1 rounded border border-indigo-200 uppercase">Operational</span>
+                                </div>
+                                <p class="text-xs text-indigo-700 leading-relaxed">Dual-channel mixer setup. Secondary backup laptop with full show-set pre-loaded in the Green Room.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
