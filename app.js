@@ -1,69 +1,80 @@
-// Central Configuration
-const CONFIG = {
-    FIXED_EXPENSES: 700,
-    SPONSORSHIP_INCOME: 500,
-    ORG_SPLIT_PERCENT: 0.50
-};
-
-// Initialize Lucide Icons
+// Initialization
 lucide.createIcons();
 
-// View Switching Functionality
-function switchView(viewId) {
-    document.querySelectorAll('.view-content').forEach(view => {
-        view.classList.add('hidden');
-        view.classList.remove('active');
-    });
-    
-    const targetView = document.getElementById(`view-${viewId}`);
-    targetView.classList.remove('hidden');
-    // Small delay to allow CSS transitions to fire
-    setTimeout(() => targetView.classList.add('active'), 10);
+const ctx = document.getElementById('mainChart').getContext('2d');
+let mainChart;
 
-    document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(`btn-${viewId}`).classList.add('active');
+// Range Inputs
+const priceIn = document.getElementById('priceRange');
+const attendeeIn = document.getElementById('attendeeRange');
+const venueIn = document.getElementById('venueRange');
+const prizeIn = document.getElementById('prizeRange');
+
+function initChart() {
+    mainChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Gross Revenue', 'Total Expenses', 'Net Profit'],
+            datasets: [{
+                data: [1650, 1000, 650],
+                backgroundColor: ['#4F46E5', '#F43F5E', '#10B981'],
+                borderRadius: 12,
+                barThickness: 60
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { display: false }, ticks: { font: { weight: 'bold' } } },
+                x: { grid: { display: false }, ticks: { font: { weight: 'bold', size: 10 } } }
+            }
+        }
+    });
 }
 
-// Financial Engine
-const priceRange = document.getElementById('priceRange');
-const attendeeRange = document.getElementById('attendeeRange');
+function updateDashboard() {
+    // Get values
+    const price = parseInt(priceIn.value);
+    const attendees = parseInt(attendeeIn.value);
+    const venue = parseInt(venueIn.value);
+    const prize = parseInt(prizeIn.value);
 
-function updateFinancials() {
-    const ticketPrice = parseInt(priceRange.value);
-    const attendance = parseInt(attendeeRange.value);
+    // Labels
+    document.getElementById('priceLabel').innerText = `$${price}`;
+    document.getElementById('attendeeLabel').innerText = attendees;
+    document.getElementById('venueLabel').innerText = `$${venue}`;
+    document.getElementById('prizeLabel').innerText = `$${prize}`;
 
-    // Dynamic Label Updates
-    document.getElementById('priceLabel').innerText = `$${ticketPrice}`;
-    document.getElementById('attendeeLabel').innerText = attendance;
+    // Calculations
+    const revenue = price * attendees;
+    const expenses = venue + prize;
+    const profit = Math.max(0, revenue - expenses);
+    const split = profit / 2;
+    const breakEvenVal = Math.ceil(expenses / price);
 
-    // The Logic Pipeline
-    const grossTicketRevenue = ticketPrice * attendance;
-    const totalGross = grossTicketRevenue + CONFIG.SPONSORSHIP_INCOME;
-    const netProfit = totalGross - CONFIG.FIXED_EXPENSES;
-    const orgSplit = netProfit * CONFIG.ORG_SPLIT_PERCENT;
+    // Update KPI Cards
+    document.getElementById('revKPI').innerText = `$${revenue.toLocaleString()}`;
+    document.getElementById('expKPI').innerText = `$${expenses.toLocaleString()}`;
+    document.getElementById('profitKPI').innerText = `$${profit.toLocaleString()}`;
+    document.getElementById('splitKPI').innerText = `$${split.toLocaleString()}`;
 
-    // DOM Updates
-    document.getElementById('grossDisplay').innerText = `$${totalGross.toLocaleString()}`;
-    document.getElementById('netProfitDisplay').innerText = `$${netProfit.toLocaleString()}`;
-    document.getElementById('splitDisplay').innerText = `$${orgSplit.toLocaleString()}`;
+    // Update Break-Even and Notes
+    document.getElementById('breakEven').innerText = `${breakEvenVal} paid guests`;
+    document.getElementById('upside').innerText = `$${(attendees * 2)}`;
 
-    // Conditional Styling for Warning States
-    const warning = document.getElementById('profitWarning');
-    const netDisplay = document.getElementById('netProfitDisplay');
-
-    if (netProfit < 300) {
-        warning.classList.remove('hidden');
-        netDisplay.classList.add('text-rose-400');
-    } else {
-        warning.classList.add('hidden');
-        netDisplay.classList.remove('text-rose-400');
-        netDisplay.classList.add('text-white');
-    }
+    // Update Chart
+    mainChart.data.datasets[0].data = [revenue, expenses, profit];
+    mainChart.update();
 }
 
 // Listeners
-priceRange.addEventListener('input', updateFinancials);
-attendeeRange.addEventListener('input', updateFinancials);
+[priceIn, attendeeIn, venueIn, prizeIn].forEach(el => {
+    el.addEventListener('input', updateDashboard);
+});
 
-// Initial Run
-updateFinancials();
+window.onload = () => {
+    initChart();
+    updateDashboard();
+};
