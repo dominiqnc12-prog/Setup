@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.view-content {
+    transition: all 0.3s ease-out;
+}
+
+.view-content.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.view-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.view-btn.active {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: #4f46e5;
+}
+
+/* Custom Range Input Styling for a Premium Feel */
+input[type=range] {
+    -webkit-appearance: none;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #4f46e5;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+    border: 2px solid white;
+}
